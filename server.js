@@ -20,7 +20,7 @@ const backupWeekly = () => {
       console.log(e);
     });
 };
-
+console.log('start cron backup DB weekly');
 cron.schedule('0 0 0 * * 0 ', () => {
   backupWeekly();
 });
