@@ -9,14 +9,7 @@ const DB_HOST = process.env.DB_HOST;
 const DB_PORT = process.env.DB_PORT;
 const backupWeekly = () => {
   const now = new Date();
-  const date =
-    now.getHours() +
-    'h -' +
-    now.getDate() +
-    '-' +
-    now.getMonth() +
-    '-' +
-    now.getFullYear();
+  const date = now.getHours() + 'h';
   execute(
     `PGPASSWORD="${DB_PASSWORD}" pg_dump -U ${DB_USER} -h ${DB_HOST} -p ${DB_PORT} -d ${DB_NAME} -f backup/${date}-database-backup.pgsql`,
   )
